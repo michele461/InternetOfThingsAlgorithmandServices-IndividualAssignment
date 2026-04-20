@@ -1,4 +1,4 @@
-# IoT Edge Computing & Adaptive Sampling System
+# IoT Assignment
 
 ## 1. Project Overview
 This repository contains the firmware and evaluation for an advanced IoT edge device based on FreeRTOS. The system collects data from a virtual noisy sensor, mitigates anomalies using Edge Computing filters (Z-Score/Hampel), dynamically adapts its sampling frequency using Fast Fourier Transform (FFT) to save energy, and transmits aggregated data via a hybrid network (MQTT over Wi-Fi for Edge, LoRaWAN via TTN for Cloud).
