@@ -30,7 +30,7 @@ The code runs on the target ESP32-S3 and is divided into 3 FreeRTOS tasks.
 * `SensorData`: struct passed through FreeRTOS queues containing raw, filtered, and clean values, anomaly flags, and timestamps for latency.
 * `generateGaussianNoise()`: uses the Box-Muller transform to generate realistic Gaussian noise.
 * `acquireSample(t)`: generates the clean signal, adding optional noise and artificial anomaly spikes.
-* `applyZScore()`: flags values deviating >3 standard deviations from the mean, optimized by removing `pow()` and `sqrt()`.
+* `applyZScore()`: flags values deviating >3 standard deviations from the mean.
 * `applyHampel()`: uses median and MAD for robust outlier detection, sorting the array dynamically.
 * `setupInitialState()` and `updatePhaseState()`: state machine handling automatic transitions of signals, window sizes, and anomaly probabilities.
 
