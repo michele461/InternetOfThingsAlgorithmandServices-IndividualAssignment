@@ -67,7 +67,7 @@ Three signals with different dynamics were analyzed in adaptive mode (Run Mode 2
 * **Considerations:** the adaptation works proportionally to the signal's bandwidth. Signal 3 (the slowest) allows for maximum energy and internal processing savings. Signal 2 (with a 10Hz harmonic) forces the board to wake up twice as often compared to Signal 1 to avoid aliasing, generating a volume of 112 samples.
 
 ### Part 3: Z-Score and Hampel Filters on Anomalous Signals (Bonus)
-* **Impact of unfiltered anomalies (Run Mode 3):** Sudden spikes act like Dirac impulses, scattering energy across all high frequencies. The raw FFT is deceived and detects skewed f_max values (e.g., 47.66 Hz), which forces the delay back to 10ms. This completely destroys the energy savings, reverting consumption to Run 1 levels.
+* **Impact of unfiltered anomalies (Run Mode 3):** The raw FFT is deceived and detects skewed f_max values (e.g., 47.66 Hz), which forces the delay back to 10ms. This completely destroys the energy savings, reverting consumption to Run 1 levels.
 
 To solve the FFT breakdown, we implemented two anomaly-aware filters. Below is the detailed performance evaluation for all combinations of Window Size and Anomaly Probability.
 
