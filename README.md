@@ -36,7 +36,7 @@ The code runs on the target ESP32-S3 and is divided into 3 FreeRTOS tasks.
 
 **Tasks and System Flow:**
 * `setup()` and `loop()`: initializes Serial, WiFi, LoRaWAN, queues, and FreeRTOS tasks.
-* `TaskSample`: acquires and queues data, using `vTaskDelayUntil()` for precise light sleep based on the sampling frequency.
+* `TaskSample`: acquires and queues data.
 * `TaskAnalyze`: applies filters, runs FFT to adapt the sampling rate, and aggregates 5s averages while computing TPR, FPR, and MER.
 * `TaskTransmit`: publishes 5s averages via MQTT (Wi-Fi) and every 30s via LoRaWAN to respect duty cycle limits.
 
