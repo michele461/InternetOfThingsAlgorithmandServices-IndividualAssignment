@@ -125,7 +125,7 @@ To solve the FFT breakdown, we implemented two anomaly-aware filters. Below is t
 In the `src/main_node.cpp` file:
 * Insert your The Things Network (TTN) identifiers: `joinEUI`, `devEUI` and `appKey`.
 * Insert your Wi-Fi credentials into the `ssid` and `password` strings.
-* (Optional) Configure the MQTT server and topic via `mqtt_server` and `mqtt_topic`.
+* Configure the MQTT server and topic via `mqtt_server` and `mqtt_topic`.
 
 ### Step 3: Compilation and Upload (PlatformIO)
 Both firmwares are managed within the project. Since both code files are located in the same `src/` folder, **you must specify the correct target environment (`env`)** in PlatformIO before performing any build or upload operation.
