@@ -1,11 +1,9 @@
 # IoT Individual Assignment - Michele Libriani 1954541
 
 ## 1. Project Overview
-In this repository, you will find all the necessary files for a complete IoT system that collects data from a sensor, analyzes it locally (Edge Computing), adapts its sampling frequency to save energy, and transmits the aggregated values as reports to both an MQTT Edge Server via Wi-Fi and to The Things Network (TTN) Cloud via LoRaWAN.
+In this repository, you will find all the necessary files for a complete IoT system developed using **FreeRTOS** that collects data from a sensor, analyzes it locally (Edge Computing), adapts its sampling frequency to save energy, and transmits the aggregated values as reports to both an MQTT Edge Server via Wi-Fi and to The Things Network (TTN) Cloud via LoRaWAN.
 
 The hardware setup is based on a "node-monitor" architecture, structured with a Heltec WiFi LoRa ESP32 V3 as the target node (main) and a second Heltec WiFi LoRa ESP32 V3 combined with an INA219 current sensor for power monitoring. The INA219 is placed in series between the power supply (battery/5V) and the Node's 5V input. Its I2C pins (SDA, SCL) are connected to the Monitor ESP32.
-
-The firmware is developed using **FreeRTOS**, a real-time operating system that enables the deterministic scheduling of concurrent tasks, maximizing CPU "sleep" time to ensure both real-time performance and efficient power management.
 
 ### Folder Structure
 The project follows the standard PlatformIO structure:
