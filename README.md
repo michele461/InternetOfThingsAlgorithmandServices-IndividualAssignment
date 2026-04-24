@@ -48,7 +48,7 @@ The code runs on the target ESP32-S3 and is divided into 3 FreeRTOS tasks.
 ### Part 1: Baseline vs Adaptive Sampling (Non-Bonus)
 Comparison performed on **Signal 1** $2\sin(2\pi3t)+4\sin(2\pi5t)$.
 
-* **Baseline / oversampling (Run Mode 1):** samples blindly at the defined maximum hardware frequency (100 Hz), without analyzing the informational content. The CPU is forced to wake up every 10ms.
+* **Baseline / oversampling (Run Mode 1):** samples blindly at the defined assignment baseline frequency (100 Hz), without analyzing the informational content. The CPU is forced to wake up every 10ms.
     * *Energy consumption:* ~407 mW average (consistently high).
     * *Data volume (overhead):* 502 samples processed internally every 5 seconds.
 * **Adaptive sampling (Run Mode 2):** uses the FFT on a 128-sample window to identify the dominant frequency (~5.47 Hz). Applying Nyquist's theorem, it recalculates the task delay to 83 ms (~12 Hz), allowing the RTOS to maximize idle/sleep periods.
