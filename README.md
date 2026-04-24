@@ -49,7 +49,7 @@ The code runs on the target ESP32-S3 and is divided into 3 FreeRTOS tasks.
 Comparison performed on **Signal 1** $2\sin(2\pi3t)+4\sin(2\pi5t)$.
 
 * **Baseline / oversampling (Run Mode 1):** samples blindly at the defined assignment baseline frequency (100 Hz), without analyzing the informational content.
-    * *Energy consumption:* ~407 mW average (consistently high).
+    * *Energy consumption:* ~407 mW average.
     * *Data volume (overhead):* 502 samples processed internally every 5 seconds.
 * **Adaptive sampling (Run Mode 2):** uses the FFT on a 128-sample window to identify the dominant frequency (~5.47 Hz). Applying Nyquist's theorem, it recalculates the task delay to 83 ms (~12 Hz).
     * *Energy consumption:* ~238 mW average during standard cycles (~41% reduction).
@@ -61,9 +61,9 @@ Comparison performed on **Signal 1** $2\sin(2\pi3t)+4\sin(2\pi5t)$.
 ### Part 2: Different Input Signal Types (Bonus)
 Three signals with different dynamics were analyzed in adaptive mode (Run Mode 2):
 
-* **Signal 1 (slow mixed):** $2\sin(2\pi3t)+4\sin(2\pi5t)$ | FFT: 5.47 Hz | delay: 83ms | volume: 61 samples.
-* **Signal 2 (fast mixed):** $3\sin(2\pi2t)+1.5\sin(2\pi10t)$ | FFT: 10.16 Hz | delay: 45ms | volume: 112 samples.
-* **Signal 3 (slow single):** $5\sin(2\pi4t)$ | FFT: 4.69 Hz | delay: 90ms | volume: 56 samples.
+* **Signal 1:** $2\sin(2\pi3t)+4\sin(2\pi5t)$ | FFT: 5.47 Hz | delay: 83ms | volume: 61 samples.
+* **Signal 2:** $3\sin(2\pi2t)+1.5\sin(2\pi10t)$ | FFT: 10.16 Hz | delay: 45ms | volume: 112 samples.
+* **Signal 3:** $5\sin(2\pi4t)$ | FFT: 4.69 Hz | delay: 90ms | volume: 56 samples.
 * **Considerations:** the adaptation works proportionally to the signal's bandwidth. Signal 3 (the slowest) allows for maximum energy and internal processing savings. Signal 2 (with a 10Hz harmonic) forces the board to wake up twice as often compared to Signal 1 to avoid aliasing, generating a volume of 112 samples.
 
 ### Part 3: Z-Score and Hampel Filters on Anomalous Signals (Bonus)
